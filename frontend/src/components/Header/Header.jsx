@@ -2,14 +2,14 @@ import React from 'react'
 import { Container, Row, Button} from 'reactstrap'
 import { NavLink, Link} from 'react-router-dom'
 import logo from '../../assets/images/logo.png'
-
+import './header.css'
 const nav__links = [
   {
     path: '/home',
     display: 'Home',
   },
   {
-    path: '#',
+    path: '/about',
     display: 'About',
   },
   {
@@ -32,11 +32,11 @@ const Header = () => {
             {/* ======= Menu Strat ======== */}
             <div className='navigation'>
               <ul className='menu d-flex align-items-center gap-5'>
-                {nav__links.map((item, index) => {
+                {nav__links.map((item, index) => (
                   <li className='nav__item' key={index}>
-                    <NavLink to={item.path}>{item.display}</NavLink>
+                    <NavLink to={item.path} className={navClass => navClass.isActive ? 'active__link': ''}>{item.display}</NavLink>
                   </li>
-                })}
+                ))}
               </ul>
             </div>
             {/* ======== menu nd ======== */}
